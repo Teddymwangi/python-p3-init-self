@@ -1,29 +1,11 @@
-#!/usr/bin/env python3
+from lib.dog import Dog
 
-from dog import Dog
+def test_dog_init_with_name_and_breed_default_to_mutt():
+    dog = Dog("Buddy")
+    assert dog.name == "Buddy"
+    assert dog.breed == "Mutt"
 
-class TestDog:
-    '''Dog in dog.py'''
-
-    def test_is_class(self):
-        '''is a class with the name "Dog"'''
-        fido = Dog("Fido")
-        assert(type(fido) == Dog)
-
-class TestInit:
-    '''Dog.__init__ in dog.py'''
-
-    def test_saves_self_name(self):
-        '''takes a name as an argument and saves it to self.name'''
-        fido = Dog("Fido")
-        assert(fido.name == "Fido")
-
-    def test_saves_self_breed(self):
-        '''takes a breed as an argument and saves it to self.breed'''
-        fido = Dog("Fido", "Dalmatian")
-        assert(fido.breed == "Dalmatian")
-
-    def test_default_breed(self):
-        '''sets self.breed = "Mutt" when no breed specified'''
-        fido = Dog("Fido")
-        assert(fido.breed == "Mutt")
+def test_dog_init_with_name_and_custom_breed():
+    dog = Dog("Max", "Labrador")
+    assert dog.name == "Max"
+    assert dog.breed == "Labrador"
